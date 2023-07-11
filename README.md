@@ -4,6 +4,8 @@
 
   <h3><b>Vet Clinic Database README</b></h3>
 
+</div>
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
