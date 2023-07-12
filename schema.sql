@@ -11,6 +11,7 @@ CREATE TABLE animals (
 ALTER TABLE animals ADD COLUMN species VARCHAR(100);
 
 Alter Table animals Drop id;
+Alter Table animals Drop species;
 ALTER TABLE animals ADD id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY;
 
 ALTER TABLE animals ADD species_id INT;

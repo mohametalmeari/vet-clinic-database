@@ -54,7 +54,6 @@ WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
 
 SELECT * FROM owners;
-
 SELECT * FROM species;
 
 SELECT
@@ -95,12 +94,15 @@ GROUP BY
 
 SELECT
     owners.full_name,
-    animals.name
+    animals.name,
+    species.name
 FROM
     animals
 INNER JOIN owners
     ON animals.owner_id = owners.id
-WHERE owners.full_name = 'Jennifer Orwell';
+INNER JOIN species
+    ON animals.species_id = species.id
+WHERE owners.full_name = 'Jennifer Orwell' AND species.name = 'Digimon' ;
 
 SELECT
     owners.full_name,
@@ -109,7 +111,7 @@ FROM
     animals
 INNER JOIN owners
     ON animals.owner_id = owners.id
-WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts IS NOT NULL;
+WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 
 SELECT
     owners.full_name,
