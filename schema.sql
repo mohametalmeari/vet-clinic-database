@@ -1,4 +1,3 @@
-
 CREATE TABLE animals (
   id INT PRIMARY KEY NOT NULL,
   name VARCHAR(100),
@@ -40,3 +39,41 @@ ADD CONSTRAINT owners_constraint
 FOREIGN KEY (owner_id) 
 REFERENCES owners (id);
 
+CREATE TABLE vets (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(100),
+  age INT,
+  date_of_graduation DATE,
+  PRIMARY KEY(id)
+);
+
+CREATE TABLE specializations (
+  vets_id INT,
+  species_id INT,
+  PRIMARY KEY(vets_id, species_id)
+);
+
+CREATE TABLE visits (
+  vets_id INT,
+  animals_id INT,
+  date_of_visit DATE,
+  PRIMARY KEY(vets_id, animals_id, date_of_visit)
+);
+
+ALTER TABLE specializations 
+ADD CONSTRAINT specializations_species_constraint
+FOREIGN KEY (species_id) 
+REFERENCES species (id);
+ALTER TABLE specializations 
+ADD CONSTRAINT specializations_vets_constraint
+FOREIGN KEY (vets_id) 
+REFERENCES vets (id);
+
+ALTER TABLE visits 
+ADD CONSTRAINT visits_vets_constraint
+FOREIGN KEY (vets_id) 
+REFERENCES vets (id);
+ALTER TABLE visits 
+ADD CONSTRAINT visits_animals_constraint
+FOREIGN KEY (animals_id) 
+REFERENCES animals (id);
