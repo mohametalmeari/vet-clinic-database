@@ -77,18 +77,3 @@ ON CONFLICT DO NOTHING;
 INSERT INTO owners (full_name, email) 
 SELECT 'Owner ' || generate_series(1,2500000), 
 'owner_' || generate_series(1,2500000) || '@mail.com';
-
-INSERT INTO visits_animal_4 (animals_id, vets_id, date_of_visit)
-SELECT animals_id, vets_id, date_of_visit
-FROM visits
-WHERE animals_id = 4;
-
-INSERT INTO visits_vet_2 (animals_id, vets_id, date_of_visit)
-SELECT animals_id, vets_id, date_of_visit
-FROM visits
-WHERE vets_id = 2;
-
-INSERT INTO owner_18327 (full_name, age, email)
-SELECT full_name, age, email
-FROM owners
-WHERE email = 'owner_18327@mail.com';
