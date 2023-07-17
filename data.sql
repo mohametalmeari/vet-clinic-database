@@ -68,6 +68,16 @@ VALUES (1, 1, '2020-05-24'),
 (6, 3, '2020-05-24'),
 (6, 1, '2021-01-11');
 
+INSERT INTO visits (animals_id, vets_id, date_of_visit) 
+SELECT * FROM (SELECT id FROM animals) animal_ids, 
+(SELECT id FROM vets) vets_ids, 
+generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp
+ON CONFLICT DO NOTHING;
+
+INSERT INTO owners (full_name, email) 
+SELECT 'Owner ' || generate_series(1,2500000), 
+'owner_' || generate_series(1,2500000) || '@mail.com';
+
 INSERT INTO visits_animal_4 (animals_id, vets_id, date_of_visit)
 SELECT animals_id, vets_id, date_of_visit
 FROM visits

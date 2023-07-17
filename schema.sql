@@ -92,7 +92,6 @@ SELECT *
 FROM visits
 WHERE animal_id = 4;
 
-
 CREATE TABLE visits_vet_2 (
   vets_id INT,
   animals_id INT,
