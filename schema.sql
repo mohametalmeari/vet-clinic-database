@@ -77,3 +77,13 @@ ALTER TABLE visits
 ADD CONSTRAINT visits_animals_constraint
 FOREIGN KEY (animals_id) 
 REFERENCES animals (id);
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX animals_index ON visits(animals_id);
+CREATE INDEX vets_index ON visits(vets_id);
+CREATE INDEX vets_index_asc ON owners(email ASC);
+
+DROP INDEX animals_index;
+DROP INDEX vets_index;
+DROP INDEX vets_index_asc;
