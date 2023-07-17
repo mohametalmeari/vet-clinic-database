@@ -77,3 +77,33 @@ ALTER TABLE visits
 ADD CONSTRAINT visits_animals_constraint
 FOREIGN KEY (animals_id) 
 REFERENCES animals (id);
+
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE TABLE visits_animal_4 (
+  vets_id INT,
+  animals_id INT,
+  date_of_visit DATE,
+  PRIMARY KEY(vets_id, animals_id, date_of_visit)
+);
+--or:
+CREATE TABLE visits_animal_4 AS
+SELECT *
+FROM visits
+WHERE animal_id = 4;
+
+
+CREATE TABLE visits_vet_2 (
+  vets_id INT,
+  animals_id INT,
+  date_of_visit DATE,
+  PRIMARY KEY(vets_id, animals_id, date_of_visit)
+);
+
+CREATE TABLE owner_18327 (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  full_name VARCHAR(100),
+  age INT,
+  email VARCHAR(120),
+  PRIMARY KEY(id)
+);

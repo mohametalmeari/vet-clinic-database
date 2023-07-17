@@ -67,3 +67,18 @@ VALUES (1, 1, '2020-05-24'),
 (6, 2, '2020-08-03'),
 (6, 3, '2020-05-24'),
 (6, 1, '2021-01-11');
+
+INSERT INTO visits_animal_4 (animals_id, vets_id, date_of_visit)
+SELECT animals_id, vets_id, date_of_visit
+FROM visits
+WHERE animals_id = 4;
+
+INSERT INTO visits_vet_2 (animals_id, vets_id, date_of_visit)
+SELECT animals_id, vets_id, date_of_visit
+FROM visits
+WHERE vets_id = 2;
+
+INSERT INTO owner_18327 (full_name, age, email)
+SELECT full_name, age, email
+FROM owners
+WHERE email = 'owner_18327@mail.com';
