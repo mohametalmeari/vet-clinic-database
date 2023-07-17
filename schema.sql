@@ -84,4 +84,6 @@ CREATE INDEX animals_index ON visits(animals_id);
 CREATE INDEX vets_index ON visits(vets_id);
 CREATE INDEX vets_index_asc ON owners(email ASC);
 
-DROP INDEX animals_index; -- To delete index
+DROP INDEX animals_index;
+DROP INDEX vets_index;
+DROP INDEX vets_index_asc;
